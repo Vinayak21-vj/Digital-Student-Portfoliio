@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Student Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+	<!-- QR (load local wrapper which attempts CDN then falls back) -->
+	<script src="vendor/qrcode.min.js"></script>
+</head>
+<body>
+  <!-- dark mode UI part -->
+  <header class="navbar">
+	  <div class="site-logo">Digital Student Portfolio</div>
+	  <nav class="nav-menu">
+		  <a href="{{url_for('achieve')}}">Achievement</a>
+		  <a href="{{url_for('certificate')}}">Certificate</a>
+		  <a href="{{url_for('skills')}}">Skills</a>
+		  <a href="{{url_for('project')}}">Project</a>
+		  <a href="{{url_for('extra_activity')}}">Curricular Activity</a>
+		  
+        </nav>
+        <button id="theme-toggle" class="theme-toggle-btn">Dark Mode</button>
+	</header>
+	
+	<!-- home section -->
+	<section id="home" class="home-section">
+	  <h1>Welcome to your Digital Portfolio</h1>
+	  <p>Organize all your marksheets, certificates, projects and achievements in one digital space.</p>
+	  <button class="btn-primary" id="get-started-btn">Go To Dashboard</button>
+	</section>
+
+	 <!-- profile vla part -->
+	  <div class="profile-container">
+    <img id="profilePic" class="profile-img" src="https://via.placeholder.com/120" alt="Profile Picture">
+    <br>
+    <input type="file" id="uploadInput" accept="image/*" hidden>
+    <button class="upload-btn" id="uploadBtn">Upload Photo</button>
+
+    <form id="profileForm">
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" id="name" placeholder="Enter your name">
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" id="email" placeholder="Enter your email">
+      </div>
+      <div class="form-group">
+        <label>About / Bio</label>
+        <textarea id="bio" rows="3" placeholder="Write something about yourself..."></textarea>
+      </div>
+      <div class="form-group">
+        <label>Skills</label>
+        <input type="text" id="skills" placeholder="e.g. Java, C++, Web Dev">
+      </div>
+      <button type="submit" class="save-btn">Save Profile</button>
+    </form>
+    </div>
+
+
+  <!-- dashboard section -->
+  <section id="dashboard" class="dashboard-section">
+	<h2>Your Dashboard</h2>
+	<p>Manage and upload your academic records below.</p>
+	<div class="category-grid">
+	  <div class="category-box" id="academic-box">
+		<h3>Academics</h3>
+		<button class="upload-btn" onclick="window.location.href='Academics.html'">Upload Marksheet</button>
+	  </div>
+	  <div class="category-box" id="project-box">
+		<h3>Projects</h3>
+		<button class="upload-btn" onclick="window.location.href='project.html'">Add Project Link</button>
+	  </div>
+	  <div class="category-box" id="achievements-box">
+		<h3>Achievements</h3>
+		<button class="upload-btn" onclick="window.location.href='acheive.html'">Add Achievement</button>
+	  </div>
+	  <div class="category-box" id="skills-box">
+		<h3>Skills</h3>
+		<button class="upload-btn" onclick="window.location.href='skills.html'">Add Skills</button>
+	  </div>
+	  <div class="category-box" id="certificate-box">
+		<h3>Certificate</h3>
+		<button class="upload-btn" onclick="window.location.href='certificate.html'">Add Certificate</button>
+	  </div>
+	  <div class="category-box" id="extra_activity-box">
+		<h3>Extra Activity</h3>
+		<button class="upload-btn" onclick="window.location.href='extra_activity.html'">Add Extra Activity</button>
+	  </div>
+	</div>
+  </section>
+
+  <!-- public profile -->
+  <section id="profile" class="profile-section">
+	<h2>Your Public Profile</h2>
+	<p>Share your profile easily using the link or QR below.</p>
+	<button id="edit-profile-btn" class="btn-primary" onclick="window.location.href='profile.html'">Edit Profile</button>
+	<div id="edit-profile-form" class="edit-profile-form" hidden>
+	  <label for="profile-slug-input">Username/Slug</label>
+	  <input type="text" id="profile-slug-input" value="gungun-jain">
+	  <div class="edit-actions">
+		<button id="save-profile-btn" class="btn-primary">Save</button>
+		<button id="cancel-profile-btn" class="upload-btn">Cancel</button>
+	  </div>
+	</div>
+	<div class="share-area">
+	  <input type="text" id="share-link" value="https://studentportfolio.local/profile/gungun-jain" readonly>
+	  <button id="copy-link-btn" class="btn-primary">Copy Link</button>
+	  <div id="qr-code"></div>
+	</div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

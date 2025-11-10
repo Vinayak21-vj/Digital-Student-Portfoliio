@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Profile - DSP</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body onload="loadUserProfile()">
+  <div class="profile-container">
+    <h1>My Profile</h1>
+
+    <div class="profile-photo">
+      <img id="profilePicPreview" src="default-avatar.png" alt="Profile Photo">
+      <input type="file" id="profilePic" accept="image/*" onchange="previewPhoto(event)">
+    </div>
+
+    <label>Name</label>
+    <input type="text" id="name" placeholder="Enter full name">
+
+    <label>Bio</label>
+    <textarea id="bio" rows="3" placeholder="Tell something about yourself..."></textarea>
+
+    <label>LinkedIn</label>
+    <input type="text" id="linkedin" placeholder="https://linkedin.com/in/yourprofile">
+
+    <label>GitHub</label>
+    <input type="text" id="github" placeholder="https://github.com/username">
+
+    <label>Portfolio Link</label>
+    <div class="profile-link-box" id="profileLink"></div>
+
+    <div id="qrCode" class="profile-qr"></div>
+
+    <button onclick="saveProfile()">Save Profile</button>
+    <button onclick="logout()">Logout</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
